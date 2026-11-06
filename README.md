@@ -1,5 +1,11 @@
 # BioLocky for Android  `2.0.0-rc1`
 
+<p align="center">
+  <img src="assets/Lockscreen.jpeg" width="24%" alt="Lock Screen" />
+  <img src="assets/thumbnailhidden.jpeg" width="24%" alt="Hidden Thumbnails" />
+  <img src="assets/settings.jpeg" width="24%" alt="Settings" />
+  <img src="assets/sortfeats.jpeg" width="24%" alt="Sorting Features" />
+</p>
 
 An encrypted file vault for your phone. Unlock with a **6-digit passcode** or your **fingerprint**.
 Files you add are encrypted with AES-256 and moved into the app's private storage.
@@ -25,18 +31,12 @@ Files you add are encrypted with AES-256 and moved into the app's private storag
 
 Requires Android 8.0+ (API 26).
 
-## App icon
-The included launcher icon is a placeholder. Replace it in Android Studio via
-**File ▸ New ▸ Image Asset** (or edit `res/drawable/ic_launcher_foreground.xml`).
-
 ## Security notes
 - **Face unlock is experimental.** The face check is software, not a hardware-enforced biometric like the fingerprint, and
   there is no liveness detection, so a photo or video of you may fool it. It pauses after 3 misses and stops working
   72 hours after your last passcode/fingerprint unlock. Keep a strong passcode and treat fingerprint as the safer shortcut.
-  The match threshold (0.62) was tuned on a very small sample; adjust `FaceFlow.THRESHOLD` after testing on real devices.
-- The bundled face model (`assets/face_model.tflite`, MobileFaceNet) comes from a public GitHub repository. Check its
-  licence before you publish or distribute the app.
-- No passcode and no recovery code means no recovery. There is no backdoor, and cloud backup is disabled.
+  The match threshold (0.62) was tuned on a very small sample.
+- No passcode and no recovery code means no recovery. There is no backdoor, and cloud backup doesn't exist.
 - The passcode is 6 digits. Attempts are throttled (lockout grows after 5 wrong tries), and the key wrapping is bound to this device.
 - Adding a fingerprint to the phone invalidates fingerprint unlock on purpose. Re-enable it in Settings.
 - "Move on import" can only delete originals where Android allows it (e.g. Downloads, internal storage). Some providers, such as Google Photos, refuse, and the app tells you.
